@@ -17,23 +17,25 @@ const
  * Resolvers
  */
 const
-    resolvers = require('./resolvers/exampleResolvers/sessionResolver')
+    resolvers = require('./resolvers/queryResolver')
 
 
 
 /**
  * Data Sources
  */
-const
-    SessionAPI = require('./dataSources/example/sessions')
 
 const dataSources = () => ({
-    sessionAPI: new require('./dataSources/example/sessions')()
+    sessionAPI: new (require('./dataSources/example/sessions'))()
 })
 
 
 
-const server = new ApolloServer({typeDefs, resolvers});
+const server = new ApolloServer({
+    typeDefs,
+    resolvers,
+    dataSources
+});
 
 
 server
