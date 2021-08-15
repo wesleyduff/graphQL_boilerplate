@@ -1,0 +1,23 @@
+{
+  "name": "apollo-graphql-raven",
+  "version": "1.0.0",
+  "description": "Application to build queries for graphQL.",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@gitlab.spectrumflow.net:wesduff/apollo-graphql-raven.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "apollo-server": "^3.1.2",
+    "graphql": "^15.5.1"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.12"
+  }
+}
