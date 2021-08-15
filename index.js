@@ -1,6 +1,5 @@
 const
-    { ApolloServer, gql } = require('apollo-server'),
-    sessions = require('./MOCKS/data/sessions.json')
+    { ApolloServer, gql } = require('apollo-server')
 ;
 
 
@@ -8,7 +7,11 @@ const
  * Type Definitions
  */
 const
-    typeDefs = require('./schemas/example/exampleSchema');
+    sessionTypeDefs = require('./schemas/example/sessionSchema'),
+    queryTypeDefs = require('./schemas/example/querySchema'),
+    starWarsTypeDefs = require('./schemas/example/starWarsSchema'),
+    typeDefs = `${sessionTypeDefs} ${queryTypeDefs} ${starWarsTypeDefs}`
+;
 
 
 
@@ -26,7 +29,8 @@ const
  */
 
 const dataSources = () => ({
-    sessionAPI: new (require('./dataSources/example/sessions'))()
+    sessionAPI: new (require('./dataSources/example/sessions'))(),
+    starWarsAPI: new (require('./dataSources/example/starWarsApi'))()
 })
 
 
