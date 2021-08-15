@@ -1,37 +1,37 @@
 const
     { ApolloServer, gql } = require('apollo-server'),
-    sessions = require('./data/sessions.json')
+    sessions = require('./MOCKS/data/sessions.json')
 ;
 
-const typeDefs = gql`    
-    type Query{
-        sessions:[Session]
-    }
-    
-    type Session {
-        id: ID!
-        title: String!
-        description: String
-        startsAt: String
-        endsAt: String
-        room: String
-        day: String
-        format: String
-        track: String
-        @deprecated(
-            reason: "Too many sessions do not fit into a single track, we will be migrating to a tags based system in the future..."
-        )
-        level: String
-    }
-`
 
-const resolvers = {
-    Query: {
-        sessions: () => {
-            return sessions
-        }
-    }
-}
+/**
+ * Type Definitions
+ */
+const
+    typeDefs = require('./schemas/example/exampleSchema');
+
+
+
+
+/**
+ * Resolvers
+ */
+const
+    resolvers = require('./resolvers/exampleResolvers/sessionResolver')
+
+
+
+/**
+ * Data Sources
+ */
+const
+    SessionAPI = require('./dataSources/example/sessions')
+
+const dataSources = () => ({
+    sessionAPI: new require('./dataSources/example/sessions')()
+})
+
+
 
 const server = new ApolloServer({typeDefs, resolvers});
 
