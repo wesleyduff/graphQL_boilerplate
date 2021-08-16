@@ -1,5 +1,6 @@
 const
-    { RESTDataSource } = require('apollo-datasource-rest')
+    { RESTDataSource } = require('apollo-datasource-rest'),
+    starWars = require('../../MOCKS/data/starWars.json')
 ;
 
 class SessionAPI extends  RESTDataSource {
@@ -11,11 +12,13 @@ class SessionAPI extends  RESTDataSource {
     }
 
     async getPlanet(id) {
-        return this.get(`planets/${id}`);
+        //return this.get(`planets/${id}`); //comment out so we do not hit api
+        return starWars.planets;
     }
 
     async getCharacter(id) {
-        return this.get(`people/${id}`);
+        //return this.get(`people/${id}`); //comment out so we do not hit api
+        return starWars.people;
     }
 }
 
