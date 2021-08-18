@@ -6,7 +6,7 @@ const
     starWars = require('../../MOCKS/data/starWars.json')
 ;
 
-class SessionAPI extends  RESTDataSource {
+class StarWarsApi extends  RESTDataSource {
     constructor(){
         // Always call super()
         super();
@@ -26,4 +26,4 @@ class SessionAPI extends  RESTDataSource {
     }
 }
 
-module.exports = SessionAPI;
+module.exports = StarWarsApi;

@@ -10,7 +10,8 @@ const
     sessionTypeDefs = require('./schemas/example/sessionSchema'),
     queryTypeDefs = require('./schemas/example/querySchema'),
     starWarsTypeDefs = require('./schemas/example/starWarsSchema'),
-    typeDefs = `${sessionTypeDefs} ${queryTypeDefs} ${starWarsTypeDefs}`
+    weatherTypeDefs = require('./schemas/weatherSchema'),
+    typeDefs = `${sessionTypeDefs} ${queryTypeDefs} ${starWarsTypeDefs} ${weatherTypeDefs}`
 ;
 
 
@@ -30,7 +31,8 @@ const
 
 const dataSources = () => ({
     sessionAPI: new (require('./dataSources/example/sessions'))(),
-    starWarsAPI: new (require('./dataSources/example/starWarsApi'))()
+    starWarsAPI: new (require('./dataSources/example/starWarsApi'))(),
+    weatherAPI: new (require('./dataSources/WeatherAPI'))()
 })
 
 
@@ -44,7 +46,7 @@ const server = new ApolloServer({
 
 server
     .listen({
-        port: process.env.PORT || 4000
+        port: process.env.PORT || 3001
     })
     .then(({url}) => {
         console.log(`INFO : SERVER NOTIFICATION : graph QL running at ${url}`)

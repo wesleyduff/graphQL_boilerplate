@@ -8,6 +8,15 @@ module.exports =  {
         },
         getStarWarsPlanet:  (parent, {id}, { dataSources }, info) => {
             return dataSources.starWarsAPI.getPlanet(id);
+        },
+        getWeatherDaily: (parent, {zoneID, zipcode}, { dataSources }, info ) => {
+
+            return dataSources.weatherAPI.getWeatherDaily(zoneID, zipcode);
+        }
+    },
+    weatherDaily : {
+        days: (parent, ars, {dataSources}, info) => {
+            return parent.result.days
         }
     }
 }
