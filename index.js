@@ -44,7 +44,7 @@ const server = new ApolloServer({
 
 server
     .listen({
-        port: process.env.PORT || 3000
+        port: process.env.PORT || 4000
     })
     .then(({url}) => {
         console.log(`INFO : SERVER NOTIFICATION : graph QL running at ${url}`)
