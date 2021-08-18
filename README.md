@@ -92,3 +92,11 @@ curl --request GET   --header 'content-type: application/json'   --url http://lo
 let graphQlQuery = 'query{sessions{title},getStarWarsPerson(id:1){name}}'
 let queryStringForGetRequest = encodeURI(graphQlQuery).replace('(', "%28").replace(')', "%29")
 ```
+
+## Caching 
+- [serverside](https://www.apollographql.com/docs/apollo-server/performance/caching/)
+- [make graphQL GET queries smaller](https://www.apollographql.com/docs/apollo-server/performance/apq/)
+
+**Query limit**:
+Although officially there is no limit specified by RFC 2616, many security protocols and recommendations state that maxQueryStrings on a server should be set to a maximum character limit of 1024. While the entire URL, including the querystring, should be set to a max of 2048 characters.
+- **FIX**: Send SHA-256 hash of query string to be executed
