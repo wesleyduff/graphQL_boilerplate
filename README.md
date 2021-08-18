@@ -29,3 +29,24 @@ Running the app requires you to run an a node script
 - `npm start`
 
 Visit http://localhost:3000/ and click on the button to query your service.
+
+# CURL commands
+You MUST be on the network to have weather work, others will work without being on the network
+- run app
+
+
+GET Weather Daily w/ day of week w/ moonPhase for that day
+---
+curl --request POST   --header 'content-type: application/json'   --url http://localhost:3001/   --data '{"query":"{ getWeatherDaily(zoneID: \"54e4ffc9ceafc43649b4dae9\", zipcode: \"80104\") { status, days { dayOfWeek, moonPhase } }}"}'
+
+GET StarWars Person
+----
+curl --request POST   --header 'content-type: application/json'   --url http://localhost:3001/   --data '{"query":"{ getStarWarsPerson(id:1) { name }}"}'
+
+GET StarWars Planet : CUSTOM ERROR
+----
+curl --request POST   --header 'content-type: application/json'   --url http://localhost:3001/   --data '{"query":"{ getStarWarsPlanet(id:1) { name }}"}'
+
+GET session :
+----
+curl --request POST   --header 'content-type: application/json'   --url http://localhost:3001/   --data '{"query":"{ sessions{ title }}"}'
